@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadDescription</key>
+      <string>Defers the availability of iOS software updates on compatible supervised devices. This is a temporary deferral, not a permanent block.</string>
+      <key>PayloadDisplayName</key>
+      <string>Software Update Deferral</string>
+      <key>PayloadIdentifier</key>
+      <string>org.stopmyupdates.profile.restrictions</string>
+      <key>PayloadType</key>
+      <string>com.apple.applicationaccess</string>
+      <key>PayloadUUID</key>
+      <string>1B18A4C7-56D1-4C92-A4F0-21E5A61D7F30</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>enforcedSoftwareUpdateDelay</key>
+      <integer>90</integer>
+      <key>forceDelayedSoftwareUpdates</key>
+      <true/>
+    </dict>
+  </array>
+  <key>PayloadDescription</key>
+  <string>Legacy 90-day software update deferral for compatible supervised iOS devices. Not supported on iOS 27 or later. Requires supervision and does not permanently block updates.</string>
+  <key>PayloadDisplayName</key>
+  <string>StopMyUpdates Legacy Deferral</string>
+  <key>PayloadIdentifier</key>
+  <string>org.stopmyupdates.profile.legacy-ota-deferral</string>
+  <key>PayloadOrganization</key>
+  <string>StopMyUpdates</string>
+  <key>PayloadRemovalDisallowed</key>
+  <false/>
+  <key>PayloadScope</key>
+  <string>System</string>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadUUID</key>
+  <string>8F2C6D31-7A4B-48D9-B3E6-9C15F0A27D44</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+</dict>
+</plist>
