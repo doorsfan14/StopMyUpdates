@@ -1,27 +1,24 @@
 # StopMyUpdates
 
-StopMyUpdates is an open-source project focused on blocking or preventing unwanted iOS software updates through configuration profiles and other version-appropriate methods.
+StopMyUpdates is an open-source project focused on managing unwanted iOS software updates through configuration profiles and other version-appropriate methods.
 
-## Overview
+## Current profile
 
-StopMyUpdates targets iOS 27 and earlier versions. The project investigates ways to manage automatic software updates, including configuration-profile-based methods where supported.
+The repository includes [legacy-ota-deferral.mobileconfig](profiles/legacy-ota-deferral.mobileconfig).
 
-Compatibility depends on the iOS version, device-management requirements, and Apple's update mechanisms. A single method is not guaranteed to work across every release.
+- **Purpose:** Defer the visibility of software updates for up to 90 days.
+- **Compatibility:** Legacy supervised iOS devices from iOS 11.3 through iOS 26, subject to device and OS behavior.
+- **Requirement:** Device supervision is required.
+- **Limitation:** This is a temporary deferral, not a permanent OTA block. Apple removed the legacy restrictions keys in iOS 27, so this profile does not provide update blocking on iOS 27.
+
+Do not install this profile expecting it to permanently block updates. Compatibility has not been independently tested across every supported version, and profile installation alone does not prove that updates are being blocked.
 
 ## Goals
 
 - Investigate update-management methods for iOS 27 and earlier.
 - Document compatibility and known limitations for each iOS version.
-- Provide clear installation and usage instructions once an implementation has been tested.
+- Test any new implementation before marking it as supported.
 - Keep development open and community contributions welcome.
-
-## Compatibility
-
-The target range is iOS 27 and earlier. Compatibility has not yet been verified across the full range. Legacy configuration-profile restrictions used to defer software updates are not supported on iOS 27, so a different approach is required for that version. No version will be marked as supported until the relevant method has been tested and verified.
-
-## Installation and Usage
-
-Installation instructions will be added after the relevant method has been implemented and tested. Do not install unverified configuration profiles on a device you rely on.
 
 ## Contributing
 
