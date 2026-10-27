@@ -85,7 +85,8 @@
     <h1>StopMyUpdates</h1>
     <button id="download-button" type="button" disabled aria-describedby="platform-note">Checking compatibility…</button>
     <p id="platform-note" aria-live="polite">Checking this device before offering a profile.</p>
-    <p>The legacy profile only defers update visibility for up to 90 days on compatible supervised devices running iOS 11.3–26. It does not permanently block updates. Do not install it on iOS 27 or later.</p>
+    <p>The legacy profile only defers update visibility for up to 90 days on compatible supervised devices running iOS 11.3–26. It does not work on iOS 27 or later, and it does not permanently block updates.</p>
+    <p>On a compatible iPhone, tapping Download saves the profile; iOS will not install it silently. Open Settings and tap Profile Downloaded, then tap Install and follow the prompts. If that banner is missing, check Settings → General → VPN &amp; Device Management.</p>
     <p><a href="https://github.com/doorsfan14/StopMyUpdates/blob/main/README.md#ios-27-and-later-current-status">Read the compatibility notes and iOS 27 requirements</a></p>
     <p>StopMyUpdates is not affiliated with Apple Inc. and is not an official iOS project.</p>
   </main>
@@ -113,13 +114,13 @@
       } else if (major === null || minor === null) {
         disable('Compatibility unknown', 'The iOS version could not be verified. Turn off Request Desktop Website, reload this page, and check the version before installing anything.');
       } else if (major >= 27) {
-        disable('Unavailable on iOS 27+', 'Apple removed the legacy deferral settings in iOS 27. This download will not work on this device. The replacement requires a supported device-management setup.');
+        disable('Not compatible with iOS 27', 'I can’t install the legacy profile on iOS 27 because Apple removed its settings. The replacement requires a compatible management service and supervised enrollment.');
       } else if (major < 11 || (major === 11 && minor < 3)) {
         disable('Unsupported iOS version', 'The legacy profile requires iOS 11.3 or later. This device does not meet that minimum.');
       } else {
         button.disabled = false;
         button.textContent = 'Download legacy profile';
-        note.textContent = 'Compatible version detected. Supervision is required; this is a temporary deferral, not a permanent update block.';
+        note.textContent = 'Compatible version detected. Supervision is required. After downloading, open Settings → Profile Downloaded → Install. This is a temporary deferral, not a permanent update block.';
         button.addEventListener('click', () => {
           window.location.href = profileUrl;
         });
