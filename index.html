@@ -101,7 +101,7 @@
       const versionMatch = ua.match(/(?:iPhone OS|CPU OS)\s(\d+)[._](\d+)/i);
       const major = versionMatch ? Number(versionMatch[1]) : null;
       const minor = versionMatch ? Number(versionMatch[2]) : null;
-      const profileUrl = 'https://github.com/doorsfan14/StopMyUpdates/raw/refs/heads/main/profiles/legacy-ota-deferral.mobileconfig';
+      const profileUrl = 'https://raw.githubusercontent.com/doorsfan14/StopMyUpdates/refs/heads/main/profiles/legacy-ota-deferral.mobileconfig';
 
       const disable = (label, message) => {
         button.disabled = true;
