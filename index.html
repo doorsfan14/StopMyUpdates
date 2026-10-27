@@ -63,6 +63,7 @@
       cursor: not-allowed;
     }
     p {
+      max-width: 38rem;
       margin: 0;
       color: #c0c9e7;
       font-size: .78rem;
@@ -83,6 +84,7 @@
     <h1>StopMyUpdates</h1>
     <button id="download-button" type="button" disabled aria-describedby="platform-note">Download profile</button>
     <p id="platform-note" aria-live="polite"></p>
+    <p>Legacy profile only: defers update visibility for up to 90 days on compatible supervised devices running iOS 11.3–26. It does not permanently block updates and is not supported on iOS 27. Supervision is required.</p>
     <p>StopMyUpdates is not affiliated with Apple Inc. and is not an official iOS project.</p>
   </main>
   <script>
@@ -95,13 +97,13 @@
       const isIOS = /iPhone|iPad|iPod/i.test(ua) || touchMac;
       if (isIOS) {
         button.disabled = false;
-        note.textContent = 'iOS device detected. The profile is not published yet.';
+        note.textContent = 'Legacy profile available. Read the compatibility limits before installing.';
         button.addEventListener('click', () => {
-          note.textContent = 'The configuration profile is not available yet.';
+          window.location.href = 'https://github.com/doorsfan14/StopMyUpdates/raw/refs/heads/main/profiles/legacy-ota-deferral.mobileconfig';
         });
       } else {
         button.disabled = true;
-        note.textContent = 'Download is available only on iOS. Open this page on an iPhone® or iPad®.';
+        note.textContent = 'Download is available only on iOS. Open this page on an iPhone or iPad.';
       }
     })();
   </script>
