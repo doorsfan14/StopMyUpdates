@@ -26,7 +26,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       text-align: center;
       gap: 1.5rem;
     }
@@ -47,17 +47,19 @@
       align-items: center;
       justify-content: center;
       padding: .9rem 1.35rem;
-      border-radius: .75rem;
+      border-radius: 999px;
       font: 700 .9rem "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
       color: #07102e;
       background: #dce5ff;
-      border: 1px solid #dce5ff;
+      border: 1px solid rgba(235, 241, 255, .65);
+      box-shadow: 0 0 0 1px rgba(220, 229, 255, .12), 0 0 18px rgba(170, 195, 255, .22), inset 0 1px 0 rgba(255, 255, 255, .55);
       cursor: pointer;
     }
     button:disabled {
       color: #8e98ba;
       background: #1a2346;
-      border-color: #2b365e;
+      border-color: rgba(100, 116, 160, .55);
+      box-shadow: 0 0 0 1px rgba(100, 116, 160, .12), inset 0 1px 0 rgba(255, 255, 255, .04);
       cursor: not-allowed;
     }
     p {
@@ -68,6 +70,7 @@
     }
     :focus-visible { outline: 2px solid #b9c9ff; outline-offset: 4px; }
     @media (max-width: 700px) {
+      main { justify-content: center; }
       h1 { font-size: clamp(2.1rem, 11vw, 4.4rem); }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -80,6 +83,7 @@
     <h1>StopMyUpdates</h1>
     <button id="download-button" type="button" disabled aria-describedby="platform-note">Download profile</button>
     <p id="platform-note" aria-live="polite"></p>
+    <p>StopMyUpdates is not affiliated with Apple Inc. and is not an official iOS project.</p>
   </main>
   <script>
     (() => {
@@ -97,7 +101,7 @@
         });
       } else {
         button.disabled = true;
-        note.textContent = 'Download is available only on iOS. Open this page on an iPhone or iPad.';
+        note.textContent = 'Download is available only on iOS. Open this page on an iPhone® or iPad®.';
       }
     })();
   </script>
