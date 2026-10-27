@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050a24">
+  <title>StopMyUpdates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: #050a24; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #f5f7ff;
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      background: linear-gradient(180deg, #03071b 0%, #080e30 48%, #101e55 100%);
+    }
+    main {
+      min-height: 100vh;
+      width: min(100% - 2rem, 76rem);
+      margin: 0 auto;
+      padding: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    h1 {
+      max-width: 100%;
+      margin: 0;
+      font-family: "Climate Crisis", Impact, sans-serif;
+      font-size: clamp(2rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -.03em;
+      overflow-wrap: anywhere;
+      text-wrap: balance;
+    }
+    button {
+      min-height: 3.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .9rem 1.35rem;
+      border-radius: .75rem;
+      font: 700 .9rem "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      color: #07102e;
+      background: #dce5ff;
+      border: 1px solid #dce5ff;
+      cursor: pointer;
+    }
+    button:disabled {
+      color: #8e98ba;
+      background: #1a2346;
+      border-color: #2b365e;
+      cursor: not-allowed;
+    }
+    p {
+      margin: 0;
+      color: #c0c9e7;
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+    :focus-visible { outline: 2px solid #b9c9ff; outline-offset: 4px; }
+    @media (max-width: 700px) {
+      h1 { font-size: clamp(2.1rem, 11vw, 4.4rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>StopMyUpdates</h1>
+    <button id="download-button" type="button" disabled aria-describedby="platform-note">Download profile</button>
+    <p id="platform-note" aria-live="polite"></p>
+  </main>
+  <script>
+    (() => {
+      const button = document.getElementById('download-button');
+      const note = document.getElementById('platform-note');
+      const ua = navigator.userAgent || '';
+      const platform = navigator.platform || '';
+      const touchMac = platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+      const isIOS = /iPhone|iPad|iPod/i.test(ua) || touchMac;
+      if (isIOS) {
+        button.disabled = false;
+        note.textContent = 'iOS device detected. The profile is not published yet.';
+        button.addEventListener('click', () => {
+          note.textContent = 'The configuration profile is not available yet.';
+        });
+      } else {
+        button.disabled = true;
+        note.textContent = 'Download is available only on iOS. Open this page on an iPhone or iPad.';
+      }
+    })();
+  </script>
+</body>
+</html>
